@@ -1,0 +1,38 @@
+name = "tcg-engine"
+main = "src/index.ts"
+compatibility_date = "2024-11-12"
+compatibility_flags = [ "nodejs_compat" ]
+
+# KV Namespaces
+[[kv_namespaces]]
+binding = "CARD_KV"
+id = "ea9af7928ee2477793dfba4484110ad3"
+
+[[kv_namespaces]]
+binding = "PLAYER_KV"
+id = "7603e82e2d4b407b93834e354300587c"
+
+[[kv_namespaces]]
+binding = "DECK_KV"
+id = "f1e694af6f0f4adda094e55aa992f2b2"
+
+[[kv_namespaces]]
+binding = "SESSION_KV"
+id = "c135deed010348009adc83ec4fb1ff45"
+
+# R2 storage for card images and assets
+[[r2_buckets]]
+binding = 'CARD_IMAGES'
+bucket_name = 'tcg-card-images'
+
+[[r2_buckets]]
+binding = 'GAME_ASSETS'
+bucket_name = 'tcg-game-assets'
+
+# Environment Variables
+[vars]
+ENVIRONMENT = "production"
+
+# Workers Logs
+[observability]
+enabled = true

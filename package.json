@@ -1,0 +1,24 @@
+{
+	"name": "cloudflare-tcg-engine",
+	"version": "0.0.1",
+	"scripts": {
+		"deploy": "wrangler deploy",
+		"dev": "wrangler dev",
+		"test": "vitest",
+		"cf-typegen": "wrangler types"
+	},
+	"dependencies": {
+		"@hono/zod-openapi": "0.18.3",
+		"@scalar/hono-api-reference": "0.5.165",
+		"cf-jwt": "^1.0.4",
+		"hono": "4.6.16",
+		"zod": "3.24.1"
+	},
+	"devDependencies": {
+		"@cloudflare/vitest-pool-workers": "^0.5.40",
+		"@cloudflare/workers-types": "^4.20241230.0",
+		"@types/node": "^22.10.5",
+		"typescript": "5.7.2",
+		"wrangler": "3.99.0"
+	}
+}
