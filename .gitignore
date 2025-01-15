@@ -1,19 +1,36 @@
 # Build
-/dist
-/server
+dist/
+build/
+out/
+*/dist
+*/build
 
 # Development
-node_modules
+node_modules/
+*/node_modules
+
+# Environment
+.env
+.env.*
+!.env.example
+*/.env
+*/.env.*
+!*/.env.example
 
 # Cache
-.cache
-.mf
-.vscode
-.rollup.cache
-tsconfig.tsbuildinfo
+.cache/
+.mf/
+.vscode/
+.rollup.cache/
+*.tsbuildinfo
+.npm
+.eslintcache
+*/.cache
+*/.mf
+*/.rollup.cache
 
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -22,8 +39,11 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Editor
+.vscode/*
 !.vscode/extensions.json
-.idea
+!.vscode/launch.json
+!.vscode/settings.json
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
@@ -34,8 +54,25 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
+.yarn-integrity
 .export.*
 
-# wrangler project
+# Wrangler
 .dev.vars
 .wrangler/
+
+# Testing
+coverage/
+*/coverage
+
+# Temporary files
+*.tmp
+*.temp
+.temp/
+.tmp/
+
+# Local Netlify folder
+.netlify
+
+# Cloudflare
+.cloudflare
