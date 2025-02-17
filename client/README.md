@@ -1,32 +1,7 @@
-# @tcg-game-template/client
+# Tauri + React + Typescript
 
-Game client for TCG players.
+This template should help get you started developing with Tauri, React and Typescript in Vite.
 
-## Features
+## Recommended IDE Setup
 
-- Card Collection View
-- Deck Builder
-- Game Board
-- Matchmaking
-- Store
-- Player Profile
-
-## Environment Variables
-
-```env
-VITE_API_URL=http://localhost:8787
-VITE_ASSETS_URL=assets-url
-```
-
-## Development
-
-```bash
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
-```
+- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)

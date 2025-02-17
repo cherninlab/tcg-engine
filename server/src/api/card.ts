@@ -45,4 +45,47 @@ route({
 	},
 });
 
+route({
+	app: cardRouter,
+	method: 'delete',
+	path: '/:cardId',
+	responseSchema: z.object({
+		success: z.boolean(),
+		message: z.string(),
+	}),
+	description: 'Delete a card',
+	handler: async (c) => {
+		const cardId = c.req.param('cardId');
+
+		// First check if the card exists
+		const card = await CardService.getCard(c, cardId);
+		if (!card) {
+			return c.json(
+				{
+					success: false,
+					message: 'Card not found',
+				},
+				404
+			);
+		}
+
+		// Attempt to delete the card
+		const success = await CardService.deleteCard(c, cardId);
+		if (!success) {
+			return c.json(
+				{
+					success: false,
+					message: 'Failed to delete card',
+				},
+				500
+			);
+		}
+
+		return c.json({
+			success: true,
+			message: 'Card deleted successfully',
+		});
+	},
+});
+
 export default cardRouter;

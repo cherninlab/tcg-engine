@@ -19,3 +19,19 @@ export const UpdatePlayerSchema = z
 
 export type Player = z.infer<typeof PlayerSchema>;
 export type UpdatePlayer = z.infer<typeof UpdatePlayerSchema>;
+
+export interface Player {
+	id: string;
+	username: string;
+	email: string;
+	displayName?: string;
+	avatarUrl?: string;
+	createdAt: string;
+	updatedAt: string;
+	stats: {
+		gamesPlayed: number;
+		gamesWon: number;
+		gamesLost: number;
+		winRate: number;
+	};
+}

@@ -1,7 +1,29 @@
 {
-	"name": "@tcg-game-template/common",
+	"name": "@tcg/common",
 	"version": "0.0.1",
 	"description": "Common code for TCG game",
 	"private": true,
-	"type": "module"
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc --watch"
+	},
+	"dependencies": {
+		"@mantine/core": "^7.5.1",
+		"@mantine/hooks": "^7.5.1",
+		"clsx": "^2.1.0",
+		"zod": "^3.24.2"
+	},
+	"peerDependencies": {
+		"@mantine/form": "^7.5.1",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.0",
+		"@types/react-dom": "^18.2.0",
+		"typescript": "~5.3.3"
+	}
 }

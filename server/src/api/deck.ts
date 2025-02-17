@@ -48,4 +48,16 @@ route({
 	},
 });
 
+route({
+	app: deckRouter,
+	method: 'get',
+	path: '/',
+	responseSchema: DeckSchema.array(),
+	description: 'List all decks',
+	handler: async (c) => {
+		const decks = await DeckService.listDecks(c);
+		return c.json(decks);
+	},
+});
+
 export default deckRouter;

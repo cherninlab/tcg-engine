@@ -92,4 +92,20 @@ export class DeckService {
 
 		return !Object.values(cardCounts).some((count) => count > gameConfig.deck.maxCopiesPerCard);
 	}
+
+	static async listDecks(c: Context<{ Bindings: Env }>): Promise<Deck[]> {
+		try {
+			const { keys } = await c.env.DECK_KV.list({ prefix: 'player:' });
+			const decks = await Promise.all(
+				keys.map(async (key) => {
+					const deck = await c.env.DECK_KV.get(key.name, 'json');
+					return deck;
+				})
+			);
+			return decks.filter((deck): deck is Deck => deck !== null);
+		} catch (error) {
+			console.error('Error listing decks:', error);
+			return [];
+		}
+	}
 }

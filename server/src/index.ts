@@ -1,5 +1,6 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { apiReference } from '@scalar/hono-api-reference';
+import { cors } from 'hono/cors';
 
 // Import routers
 import actionRouter from './api/action';
@@ -15,6 +16,19 @@ const app = new OpenAPIHono({
 		if (!result.success) return c.json({ message: 'Invalid request' }, 400);
 	},
 });
+
+// Add CORS middleware
+app.use(
+	'/*',
+	cors({
+		origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+		allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+		allowHeaders: ['Content-Type', 'Authorization'],
+		exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
+		maxAge: 600,
+		credentials: true,
+	})
+);
 
 // OpenAPI configuration
 const openAPIConfig = {

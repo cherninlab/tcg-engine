@@ -1,7 +1,14 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"composite": true,
+		"outDir": "dist",
+		"rootDir": "src",
+		"baseUrl": ".",
+		"paths": {
+			"@tcg/common/*": ["../common/src/*"]
+		}
+	},
+	"include": ["src"],
+	"references": [{ "path": "../common" }]
 }

@@ -1,0 +1,129 @@
+.game-card {
+	width: 100px;
+	height: 140px;
+	background: #2d3436;
+	border-radius: 8px;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	border: 2px solid;
+	overflow: hidden;
+	font-size: 0.8rem;
+	color: white;
+}
+
+.game-card.playable:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.game-card.selected {
+	transform: translateY(-10px);
+	box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.game-card.disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+}
+
+.card-cost {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 25px;
+	height: 25px;
+	background: #4dabf7;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	z-index: 1;
+}
+
+.card-image {
+	width: 100%;
+	height: 60px;
+	overflow: hidden;
+	background: #1a1a2e;
+}
+
+.card-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.card-name {
+	padding: 2px 5px;
+	font-weight: bold;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.5);
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.card-type {
+	font-size: 0.7rem;
+	text-align: center;
+	color: #adb5bd;
+	text-transform: capitalize;
+}
+
+.card-stats {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 10px;
+	margin-top: 2px;
+}
+
+.attack {
+	color: #ff6b6b;
+}
+
+.defense {
+	color: #69db7c;
+}
+
+.card-description {
+	padding: 2px 5px;
+	font-size: 0.7rem;
+	text-align: center;
+	height: 25px;
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+
+.card-effects {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 2px;
+	font-size: 0.6rem;
+}
+
+.effect {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: #ffd43b;
+}
+
+/* Rarity indicators */
+.game-card[data-rarity='legendary'] {
+	box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+.game-card[data-rarity='rare'] {
+	box-shadow: 0 0 10px rgba(77, 171, 247, 0.3);
+}
+
+.game-card[data-rarity='uncommon'] {
+	box-shadow: 0 0 10px rgba(105, 219, 124, 0.3);
+}

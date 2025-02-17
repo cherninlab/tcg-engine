@@ -1,4 +1,5 @@
 import { z } from '@hono/zod-openapi';
+import { Card } from './card';
 
 export const DeckSchema = z
 	.object({
@@ -30,3 +31,17 @@ export const UpdateDeckSchema = DeckSchema.omit({
 export type Deck = z.infer<typeof DeckSchema>;
 export type CreateDeck = z.infer<typeof CreateDeckSchema>;
 export type UpdateDeck = z.infer<typeof UpdateDeckSchema>;
+
+export interface DeckCard {
+	card: Card;
+	quantity: number;
+}
+
+export interface Deck {
+	id: string;
+	name: string;
+	description?: string;
+	cards: DeckCard[];
+	createdAt: string;
+	updatedAt: string;
+}
