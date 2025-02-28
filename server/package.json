@@ -16,12 +16,14 @@
 		"@tcg-game-template/common": "file:../common",
 		"cf-jwt": "^1.0.4",
 		"hono": "4.6.16",
+		"resend": "^4.1.2",
+		"sib-api-v3-typescript": "^2.2.2",
 		"zod": "3.24.1"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.5.40",
 		"@cloudflare/workers-types": "^4.20241230.0",
-		"@types/node": "^22.10.5",
+		"@types/node": "^22.13.5",
 		"typescript": "~5.6.2",
 		"wrangler": "3.99.0"
 	}

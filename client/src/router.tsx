@@ -4,12 +4,10 @@ import { ErrorPage } from './components/ErrorPage';
 import { PageLoader } from './components/PageLoader';
 import { useAuth } from './hooks/useAuth';
 import appStyles from './styles/AppLayout.module.css';
-import authStyles from './styles/AuthLayout.module.css';
 
 // Lazy load components
 const LoginPage = lazy(() => import('./pages/auth/Login'));
-const RegisterPage = lazy(() => import('./pages/auth/Register'));
-const ForgotPasswordPage = lazy(() => import('./pages/auth/ForgotPassword'));
+const VerifyTokenPage = lazy(() => import('./pages/auth/VerifyToken'));
 const HomePage = lazy(() => import('./pages/Home'));
 const GamePlayPage = lazy(() => import('./pages/game/GamePlay'));
 const GameLobbyPage = lazy(() => import('./pages/game/GameLobby'));
@@ -22,6 +20,7 @@ export const routes = {
 	// Public routes
 	auth: {
 		login: '/auth/login',
+		verify: '/auth/verify',
 		register: '/auth/register',
 		forgotPassword: '/auth/forgot-password',
 	},
@@ -30,6 +29,7 @@ export const routes = {
 		home: '/',
 		game: {
 			play: '/game/play',
+			playWithId: '/game/play/:gameId',
 			lobby: '/game/lobby',
 			deck: '/game/deck',
 		},
@@ -41,7 +41,7 @@ export const routes = {
 } as const;
 
 // Type-safe route getter
-export function getRoute<T extends string[], R extends { [K: string]: any } = typeof routes>(path: T, routeObj: R = routes as R): string {
+export function getRoute<T extends string[]>(path: T, routeObj: any = routes): string {
 	return path.reduce((obj: any, key) => obj[key], routeObj) as string;
 }
 
@@ -59,13 +59,9 @@ const AuthLayout = () => {
 	}
 
 	return (
-		<div className={authStyles.authLayout}>
-			<div className={authStyles.container}>
-				<Suspense fallback={<PageLoader />}>
-					<Outlet />
-				</Suspense>
-			</div>
-		</div>
+		<Suspense fallback={<PageLoader />}>
+			<Outlet />
+		</Suspense>
 	);
 };
 
@@ -98,12 +94,8 @@ export const router = createBrowserRouter([
 				element: <LoginPage />,
 			},
 			{
-				path: routes.auth.register,
-				element: <RegisterPage />,
-			},
-			{
-				path: routes.auth.forgotPassword,
-				element: <ForgotPasswordPage />,
+				path: routes.auth.verify,
+				element: <VerifyTokenPage />,
 			},
 		],
 	},
@@ -117,6 +109,10 @@ export const router = createBrowserRouter([
 			},
 			{
 				path: routes.app.game.play,
+				element: <GamePlayPage />,
+			},
+			{
+				path: routes.app.game.playWithId,
 				element: <GamePlayPage />,
 			},
 			{

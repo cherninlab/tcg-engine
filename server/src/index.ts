@@ -4,6 +4,7 @@ import { cors } from 'hono/cors';
 
 // Import routers
 import actionRouter from './api/action';
+import authRouter from './api/auth';
 import cardRouter from './api/card';
 import deckRouter from './api/deck';
 import economyRouter from './api/economy';
@@ -21,7 +22,7 @@ const app = new OpenAPIHono({
 app.use(
 	'/*',
 	cors({
-		origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+		origin: ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://localhost:1420', 'http://127.0.0.1:1420'],
 		allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
 		allowHeaders: ['Content-Type', 'Authorization'],
 		exposeHeaders: ['Content-Length', 'X-Kuma-Revision'],
@@ -42,6 +43,7 @@ const openAPIConfig = {
 
 // Mount API routes
 app.route('/action', actionRouter);
+app.route('/auth', authRouter);
 app.route('/cards', cardRouter);
 app.route('/decks', deckRouter);
 app.route('/economy', economyRouter);

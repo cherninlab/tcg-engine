@@ -5,7 +5,10 @@ interface Env {
 	PLAYER_KV: KVNamespace;
 	DECK_KV: KVNamespace;
 	SESSION_KV: KVNamespace;
-	ENVIRONMENT: "production";
+	CLIENT_URL: string;
+	ADMIN_URL: string;
+	API_URL: string;
+	ENVIRONMENT: string;
 	CARD_IMAGES: R2Bucket;
 	GAME_ASSETS: R2Bucket;
 }

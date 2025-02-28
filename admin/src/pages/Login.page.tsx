@@ -1,51 +1,49 @@
-import { Button, Center, Paper, PasswordInput, Text, TextInput } from '@mantine/core';
-import { useForm } from '@mantine/form';
-import { useNavigate } from 'react-router-dom';
+import { LoginPage as CommonLoginPage } from '@tcg/common';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { useEffect } from 'react';
+import { notifications } from '@mantine/notifications';
 
 export function LoginPage() {
-	const { login, loading, error } = useAuth();
-	const navigate = useNavigate();
+  const { login, loading, error, verifyToken } = useAuth();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
 
-	const form = useForm({
-		initialValues: {
-			email: '',
-			password: '',
-		},
-		validate: {
-			email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-			password: (value) => (value.length < 6 ? 'Password must be at least 6 characters' : null),
-		},
-	});
+  // Handle magic link token verification
+  useEffect(() => {
+    if (token) {
+      verifyToken(token)
+        .then(() => {
+          navigate('/');
+        })
+        .catch((err) => {
+          notifications.show({
+            title: 'Authentication Error',
+            message: err.message || 'Failed to verify login token',
+            color: 'red',
+          });
+        });
+    }
+  }, [token, verifyToken, navigate]);
 
-	const handleSubmit = async (values: typeof form.values) => {
-		try {
-			await login(values.email, values.password);
-			navigate('/');
-		} catch (err) {
-			console.error(err);
-		}
-	};
+  const handleSubmit = async (email: string) => {
+    try {
+      await login(email);
+    } catch (err) {
+      // Error is already handled in the login function
+      console.error('Login error:', err);
+    }
+  };
 
-	return (
-		<Center h="100vh">
-			<Paper p={30} maw={400} w="100%" mx="auto">
-				<form onSubmit={form.onSubmit(handleSubmit)}>
-					<TextInput label="Email" placeholder="you@example.com" required {...form.getInputProps('email')} />
-
-					<PasswordInput label="Password" placeholder="your password" required mt="md" {...form.getInputProps('password')} />
-
-					{error && (
-						<Text c="red" size="sm" mt="sm">
-							{error}
-						</Text>
-					)}
-
-					<Button type="submit" fullWidth mt="xl" loading={loading}>
-						Sign in
-					</Button>
-				</form>
-			</Paper>
-		</Center>
-	);
+  return (
+    <CommonLoginPage
+      onSubmit={handleSubmit}
+      loading={loading}
+      error={error}
+      title="Admin Dashboard"
+      subtitle="Enter your admin email to receive a magic link"
+      buttonText="Send magic link"
+    />
+  );
 }

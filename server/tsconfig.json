@@ -6,7 +6,7 @@
 		"esModuleInterop": true,
 		"strict": true,
 		"lib": ["ES2020"],
-		"types": ["@cloudflare/workers-types"],
+		"types": ["@cloudflare/workers-types", "./worker-configuration.d.ts"],
 		"skipLibCheck": true,
 		"noEmit": true,
 		"isolatedModules": true,

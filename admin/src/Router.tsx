@@ -5,6 +5,7 @@ import { CardsPage } from './pages/Cards.page';
 import { DashboardPage } from './pages/Dashboard.page';
 import { DecksPage } from './pages/Decks.page';
 import { LoginPage } from './pages/Login.page';
+import { VerifyTokenPage } from './pages/VerifyToken.page';
 import { PlayersPage } from './pages/Players.page';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -42,6 +43,7 @@ export function Router() {
 	return (
 		<Routes>
 			<Route path="/login" element={user ? <Navigate to="/" /> : <LoginPage />} />
+			<Route path="/verify" element={<VerifyTokenPage />} />
 			<Route path="/*" element={<AdminRoutes />} />
 		</Routes>
 	);

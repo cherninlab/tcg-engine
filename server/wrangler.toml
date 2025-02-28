@@ -32,6 +32,9 @@ bucket_name = 'tcg-game-assets'
 # Environment Variables
 [vars]
 ENVIRONMENT = "production"
+CLIENT_URL = "http://localhost:1420"
+ADMIN_URL = "http://localhost:5173"
+API_URL = "http://localhost:8787"
 
 # Workers Logs
 [observability]

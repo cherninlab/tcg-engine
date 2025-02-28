@@ -30,11 +30,46 @@ Backend game engine built with Cloudflare Workers, Hono, and Zod.
    cp .env.example .env
    ```
 
+   The following environment variables are required:
+
+   ```env
+   # Client URLs (required for CORS and redirects)
+   CLIENT_URL=http://localhost:1420  # Tauri client URL
+   ADMIN_URL=http://localhost:5173   # Admin panel URL
+
+   # API URL (required for client configuration)
+   API_URL=http://localhost:8787     # Cloudflare Worker URL
+
+   # Development mode
+   NODE_ENV=development
+   ```
+
+   Note: Additional variables like KV namespaces and R2 buckets are managed by Wrangler configuration.
+
 4. **Start the development server**:
 
    ```bash
    npm run dev
    ```
+
+## Configuration Files
+
+### .env
+
+Local environment variables for development. Copy from `.env.example` and modify as needed.
+
+### .dev.vars
+
+Development variables for Wrangler. These override the variables in `wrangler.toml` during local development.
+
+### wrangler.toml
+
+Cloudflare Workers configuration file. Contains:
+
+- KV namespace bindings
+- R2 bucket configurations
+- Production environment variables
+- Worker settings
 
 ## API Endpoints
 
@@ -99,14 +134,19 @@ Backend game engine built with Cloudflare Workers, Hono, and Zod.
   - **Path Parameter**: `sessionId`
   - **Response**: Session object.
 
-## Environment Variables
+## Storage
 
-- **CARD_KV**: KV Namespace for card data.
-- **PLAYER_KV**: KV Namespace for player data.
-- **DECK_KV**: KV Namespace for deck data.
-- **SESSION_KV**: KV Namespace for session data.
-- **CARD_IMAGES**: R2 Bucket for card images.
-- **GAME_ASSETS**: R2 Bucket for game assets.
+### KV Namespaces
+
+- **CARD_KV**: Card data storage
+- **PLAYER_KV**: Player data storage
+- **DECK_KV**: Deck data storage
+- **SESSION_KV**: Session data storage
+
+### R2 Buckets
+
+- **CARD_IMAGES**: Storage for card images
+- **GAME_ASSETS**: Storage for game assets
 
 ## Error Messages
 

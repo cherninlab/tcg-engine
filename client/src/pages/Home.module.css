@@ -1,8 +1,53 @@
 .root {
-  padding: 2rem;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, var(--mantine-color-blue-0) 0%, var(--mantine-color-blue-1) 100%);
+	padding-top: 5rem;
+	text-align: center;
+}
+
+.cardDisplay {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin: 2rem 0;
+	perspective: 1000px;
+}
+
+.card {
+	width: 200px;
+	height: 280px;
+	background: linear-gradient(135deg, #3498db, #9b59b6);
+	border-radius: 12px;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	position: relative;
+	transition: transform 0.5s ease;
+	transform-style: preserve-3d;
+}
+
+.card:nth-child(1) {
+	transform: rotate(-10deg);
+	background: linear-gradient(135deg, #e74c3c, #f39c12);
+	animation: float 3s ease-in-out infinite;
+}
+
+.card:nth-child(2) {
+	transform: translateY(-20px);
+	z-index: 1;
+	animation: float 3s ease-in-out 0.2s infinite;
+}
+
+.card:nth-child(3) {
+	transform: rotate(10deg);
+	background: linear-gradient(135deg, #2ecc71, #1abc9c);
+	animation: float 3s ease-in-out 0.4s infinite;
+}
+
+@keyframes float {
+	0% {
+		transform: translateY(0) rotate(var(--rotation, 0deg));
+	}
+	50% {
+		transform: translateY(-10px) rotate(var(--rotation, 0deg));
+	}
+	100% {
+		transform: translateY(0) rotate(var(--rotation, 0deg));
+	}
 }
