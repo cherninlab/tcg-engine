@@ -10,7 +10,7 @@ export default defineConfig(async () => ({
 	plugins: [react()],
 	resolve: {
 		alias: {
-			'@tcg/common': path.resolve(__dirname, '../common/src'),
+			'@rism-tcg/common': path.resolve(__dirname, '../common/src'),
 		},
 	},
 

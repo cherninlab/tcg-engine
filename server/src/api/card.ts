@@ -1,5 +1,5 @@
 import { OpenAPIHono, z } from '@hono/zod-openapi';
-import { CardCreateSchema, CardSchema } from '@tcg-game-template/common/src';
+import { CardCreateSchema, CardSchema } from '@rism-tcg/common/src';
 import { CardService } from '../services/CardService';
 import { route } from '../utils/api';
 

@@ -1,6 +1,6 @@
-# TCG Game Template
+# Rism - Trading Card Game
 
-A complete Trading Card Game (TCG) solution, using a Cloudflare Workers backend and multiple React frontends (Admin panel and Client). This monorepo provides everything you need to build, manage, and play a TCG-style game.
+A complete Trading Card Game (TCG) solution. Rism uses a Cloudflare Workers backend and multiple React frontends (Admin panel and Client). This monorepo provides everything you need to build, manage, and play a TCG-style game.
 
 ## Architecture Overview
 

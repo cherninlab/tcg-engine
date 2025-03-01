@@ -1,5 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { BalanceSchema, PurchaseItemSchema } from '@tcg-game-template/common/src';
+import { BalanceSchema, PurchaseItemSchema } from '@rism-tcg/common/src';
 import { EconomyService } from '../services/EconomyService';
 import { ResSuccessSchema, route } from '../utils/api';
 

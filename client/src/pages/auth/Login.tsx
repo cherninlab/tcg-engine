@@ -1,9 +1,10 @@
 import { notifications } from '@mantine/notifications';
-import { LoginPage } from '@tcg/common';
+import { LoginPage } from '@rism-tcg/common';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import bgTile from '../../assets/bg-tile-512.png';
 import { useAuth } from '../../hooks/useAuth';
+
 function ClientLoginPage() {
 	const { login, loading, error, verifyToken } = useAuth();
 	const [searchParams] = useSearchParams();

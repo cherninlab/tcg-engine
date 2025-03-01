@@ -1,4 +1,4 @@
-import { Player, UpdatePlayer } from '@tcg-game-template/common/src';
+import { Player, UpdatePlayer } from '@rism-tcg/common/src';
 import { Context } from 'hono';
 import { gameConfig } from '../config/game';
 

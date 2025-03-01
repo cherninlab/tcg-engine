@@ -1,0 +1,517 @@
+.container {
+	position: relative;
+	min-height: 100vh;
+	color: white;
+	font-family: 'Russo One', sans-serif;
+}
+
+.backgroundImage {
+	position: absolute;
+	inset: 0;
+	background-image: url('https://placehold.co/1920x1080');
+	background-size: cover;
+	background-position: center;
+	opacity: 0.2;
+	z-index: 0;
+}
+
+.backgroundGradient {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, rgba(26, 30, 42, 0.9), #1a1e2a);
+	z-index: 1;
+}
+
+.content {
+	position: relative;
+	z-index: 10;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.layout {
+	display: flex;
+	gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+	.layout {
+		flex-direction: column;
+	}
+}
+
+/* Sidebar */
+.sidebar {
+	width: 300px;
+	flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+	.sidebar {
+		width: 100%;
+	}
+}
+
+.profileCard {
+	background: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.avatarContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
+}
+
+.avatarWrapper {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.avatarBorder {
+	position: absolute;
+	inset: -4px;
+	border-radius: 9999px;
+	background: linear-gradient(to bottom, #f4bc41, #f5a73b);
+}
+
+.avatar {
+	width: 120px;
+	height: 120px;
+	border-radius: 9999px;
+	position: relative;
+}
+
+.playerName {
+	font-size: 1.5rem;
+	margin-bottom: 0.25rem;
+}
+
+.playerTitle {
+	color: #69b7f9;
+	margin-bottom: 1rem;
+}
+
+.rankBadge {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	background: #2a313b;
+	border-radius: 9999px;
+	padding: 0.5rem 1rem;
+	margin: 0 auto;
+}
+
+.rankIcon {
+	width: 24px;
+	height: 24px;
+}
+
+.progressSection {
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+	border-top: 2px solid #3a424f;
+}
+
+.progressHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.progressLabel {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+.expValue {
+	font-size: 0.875rem;
+	color: #69b7f9;
+}
+
+.progressBar {
+	height: 8px;
+	background: #2a313b;
+	border-radius: 9999px;
+	overflow: hidden;
+}
+
+.progressFill {
+	height: 100%;
+	background: linear-gradient(to right, #69b7f9, #4086f8);
+}
+
+.statsCard {
+	background: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+}
+
+.cardTitle {
+	font-size: 1.25rem;
+	margin-bottom: 1rem;
+}
+
+.statsList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.statItem {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.statValue {
+	font-weight: bold;
+}
+
+.valueRank {
+	color: #f4bc41;
+}
+
+.valueWins {
+	color: #79dc69;
+}
+
+.valuePercentile {
+	color: #69b7f9;
+}
+
+/* Main Content */
+.mainContent {
+	flex: 1;
+}
+
+.tabsContainer {
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+	overflow-x: auto;
+}
+
+.tabButton {
+	padding: 0.75rem 1.5rem;
+	border-radius: 6px;
+	font-size: 0.875rem;
+	border: 1px solid #3a424f;
+	background: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	color: rgba(255, 255, 255, 0.6);
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.tabButtonActive {
+	background: #69b7f9;
+	color: white;
+	border-color: #69b7f9;
+}
+
+/* Stats Grid */
+.statsGrid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+@media (max-width: 768px) {
+	.statsGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.statBox {
+	background: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 8px;
+	border: 1px solid #3a424f;
+	padding: 1rem;
+}
+
+.statBoxLabel {
+	font-size: 0.875rem;
+	opacity: 0.6;
+	margin-bottom: 0.25rem;
+}
+
+.statBoxValue {
+	font-size: 1.5rem;
+}
+
+.valueGreen {
+	color: #79dc69;
+}
+
+.valueYellow {
+	color: #f4bc41;
+}
+
+.valuePurple {
+	color: #8a55ed;
+}
+
+/* Recent Matches */
+.matchesCard {
+	background: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.matchesList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.matchItem {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	padding: 0.75rem;
+	border-radius: 8px;
+}
+
+.matchWin {
+	background: rgba(121, 220, 105, 0.1);
+}
+
+.matchLoss {
+	background: rgba(221, 77, 68, 0.1);
+}
+
+.matchResult {
+	width: 60px;
+	text-align: center;
+	font-size: 0.875rem;
+	text-transform: capitalize;
+}
+
+.resultWin {
+	color: #79dc69;
+}
+
+.resultLoss {
+	color: #dd4d44;
+}
+
+.matchInfo {
+	flex: 1;
+}
+
+.opponentName {
+	margin-bottom: 0.25rem;
+}
+
+.deckName {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+.matchStats {
+	text-align: right;
+}
+
+.ratingChange {
+	margin-bottom: 0.25rem;
+}
+
+.matchTime {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+/* Favorite Decks */
+.decksGrid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+@media (max-width: 768px) {
+	.decksGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.deckCard {
+	position: relative;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.deckCard:hover .deckBorder {
+	opacity: 1;
+}
+
+.deckBorder {
+	position: absolute;
+	inset: -2px;
+	border-radius: 12px;
+	background: linear-gradient(to bottom, #69b7f9, #4086f8);
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.deckContent {
+	position: relative;
+	background: #2a313b;
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+.deckImage {
+	width: 100%;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+}
+
+.deckFooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.deckStats {
+	display: flex;
+	flex-direction: column;
+}
+
+.deckWinRate {
+	font-size: 0.875rem;
+	color: #79dc69;
+}
+
+.deckWins {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+/* Achievements */
+.achievementsCard {
+	background: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+}
+
+.achievementsList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.achievementItem {
+	background: #2a313b;
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+.achievementHeader {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.achievementIcon {
+	width: 40px;
+	height: 40px;
+	border-radius: 4px;
+}
+
+.achievementContent {
+	flex: 1;
+}
+
+.achievementTitleRow {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.25rem;
+}
+
+.achievementComplete {
+	color: #79dc69;
+}
+
+.achievementDesc {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+.achievementProgress {
+	margin-top: 0.5rem;
+}
+
+.achievementProgressBar {
+	height: 8px;
+	background: #1a1e2a;
+	border-radius: 9999px;
+	overflow: hidden;
+}
+
+.achievementProgressFill {
+	height: 100%;
+	background: linear-gradient(to right, #69b7f9, #4086f8);
+}
+
+.achievementProgressText {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 0.25rem;
+	font-size: 0.75rem;
+}
+
+/* Collection Stats */
+.collectionGrid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+}
+
+@media (max-width: 768px) {
+	.collectionGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+.rarityBox {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #2a313b;
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+.rarityLegendary {
+	color: #dd4d44;
+}
+
+.rarityEpic {
+	color: #f4bc41;
+}
+
+.rarityRare {
+	color: #8a55ed;
+}
+
+.rarityCommon {
+	color: #69b7f9;
+}

@@ -1,4 +1,4 @@
-name = "tcg-engine"
+name = "rism-tcg"
 main = "src/index.ts"
 compatibility_date = "2024-11-12"
 compatibility_flags = [ "nodejs_compat" ]
@@ -23,11 +23,11 @@ id = "c135deed010348009adc83ec4fb1ff45"
 # R2 storage for card images and assets
 [[r2_buckets]]
 binding = 'CARD_IMAGES'
-bucket_name = 'tcg-card-images'
+bucket_name = 'rism-card-images'
 
 [[r2_buckets]]
 binding = 'GAME_ASSETS'
-bucket_name = 'tcg-game-assets'
+bucket_name = 'rism-game-assets'
 
 # Environment Variables
 [vars]
@@ -35,6 +35,7 @@ ENVIRONMENT = "production"
 CLIENT_URL = "http://localhost:1420"
 ADMIN_URL = "http://localhost:5173"
 API_URL = "http://localhost:8787"
+RESEND_API_KEY = "re_XqE6F3v7_FavKJ4qwiz9oHJw6z2Z3VZmF"
 
 # Workers Logs
 [observability]

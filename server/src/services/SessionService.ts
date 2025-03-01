@@ -1,4 +1,4 @@
-import { Deck, Session } from '@tcg-game-template/common/src';
+import { Deck, Session } from '@rism-tcg/common/src';
 import { Context } from 'hono';
 import { gameConfig } from '../config/game';
 

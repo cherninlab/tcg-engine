@@ -1,0 +1,566 @@
+.container {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	color: white;
+	font-family: 'Russo One', sans-serif;
+}
+
+.backgroundImage {
+	position: absolute;
+	inset: 0;
+	background-image: url('https://placehold.co/1920x1080');
+	background-size: cover;
+	background-position: center;
+	opacity: 0.2;
+	z-index: 0;
+}
+
+.backgroundGradient {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, rgba(26, 30, 42, 0.9), #1a1e2a);
+	z-index: 1;
+}
+
+.content {
+	position: relative;
+	z-index: 10;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.pageTitle {
+	font-size: 2.5rem;
+	text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.pointsContainer {
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 8px;
+	border: 1px solid #3a424f;
+	padding: 1rem;
+}
+
+.pointsLabel {
+	font-size: 0.875rem;
+	opacity: 0.6;
+	margin-bottom: 0.25rem;
+}
+
+.pointsValue {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+
+.points {
+	font-size: 1.5rem;
+	color: #f4bc41;
+}
+
+.nextReward {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+.mainGrid {
+	display: grid;
+	grid-template-columns: 1fr 300px;
+	gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+	.mainGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Quests Card */
+.card {
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+.tabsContainer {
+	display: flex;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+	overflow-x: auto;
+}
+
+.tabButton {
+	padding: 0.75rem 1.5rem;
+	border-radius: 6px;
+	font-size: 0.875rem;
+	border: 1px solid #3a424f;
+	background: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	color: rgba(255, 255, 255, 0.6);
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.tabButtonActive {
+	background: #69b7f9;
+	color: white;
+	border-color: #69b7f9;
+}
+
+.questTab {
+	background: #79dc69;
+	color: white;
+	border-color: #79dc69;
+}
+
+.weeklyTab {
+	background: #69b7f9;
+	color: white;
+	border-color: #69b7f9;
+}
+
+.requestsTab {
+	background: #f4bc41;
+	color: white;
+	border-color: #f4bc41;
+}
+
+.questsList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.questCard {
+	position: relative;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.questCard:hover {
+	transform: translateY(-2px);
+}
+
+.questCompleted {
+	position: absolute;
+	inset: -2px;
+	border-radius: 8px;
+	background: linear-gradient(to right, #79dc69, #68d45a);
+	z-index: 0;
+}
+
+.questCardContent {
+	position: relative;
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 6px;
+	padding: 1rem;
+	z-index: 1;
+}
+
+.questHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 0.5rem;
+}
+
+.questTitle {
+	font-size: 1.125rem;
+	font-weight: bold;
+}
+
+.questTimeLeft {
+	font-size: 0.875rem;
+}
+
+.progressBar {
+	height: 8px;
+	background-color: #2a313b;
+	border-radius: 9999px;
+	overflow: hidden;
+	margin-bottom: 0.5rem;
+}
+
+.progressFill {
+	height: 100%;
+	background: linear-gradient(to right, #69b7f9, #4086f8);
+	transition: width 0.5s;
+}
+
+.progressStats {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.progressText {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+.rewardContainer {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.rewardIcon {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+.coinsReward {
+	color: #f4bc41;
+}
+
+.gemsReward {
+	color: #69b7f9;
+}
+
+/* Achievements */
+.achievementCard {
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.achievementTitle {
+	font-size: 1.25rem;
+	margin-bottom: 1.5rem;
+	text-transform: capitalize;
+}
+
+.achievementsList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.achievementItem {
+	position: relative;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.achievementItem:hover {
+	transform: translateY(-2px);
+}
+
+.achievementBorder {
+	position: absolute;
+	inset: -2px;
+	border-radius: 8px;
+	background: linear-gradient(to right, #f4bc41, #f5a73b);
+	opacity: 0;
+	transition: opacity 0.2s;
+	z-index: 0;
+}
+
+.achievementItem:hover .achievementBorder {
+	opacity: 1;
+}
+
+.achievementCompleted .achievementBorder {
+	opacity: 1;
+}
+
+.achievementContent {
+	position: relative;
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 6px;
+	padding: 1rem;
+	z-index: 1;
+}
+
+.achievementIconContainer {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.achievementIcon {
+	width: 50px;
+	height: 50px;
+	border-radius: 8px;
+	background-color: #2a313b;
+	border: 2px solid #3a424f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+}
+
+.achievementInfo {
+	flex: 1;
+}
+
+.achievementHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	margin-bottom: 0.5rem;
+}
+
+.achievementName {
+	font-size: 1.125rem;
+	font-weight: bold;
+}
+
+.achievementPoints {
+	color: #f4bc41;
+}
+
+.achievementDesc {
+	font-size: 0.875rem;
+	opacity: 0.6;
+	margin-bottom: 0.5rem;
+}
+
+.achievementProgressContainer {
+	margin-top: 0.5rem;
+}
+
+.achievementProgressBar {
+	height: 8px;
+	background-color: #2a313b;
+	border-radius: 9999px;
+	overflow: hidden;
+	margin-bottom: 0.25rem;
+}
+
+.achievementProgressFill {
+	height: 100%;
+	background: linear-gradient(to right, #69b7f9, #4086f8);
+}
+
+.achievementProgressText {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+.achievementCompletedText {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: #79dc69;
+}
+
+/* Progress Tracking */
+.sidebarCard {
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.sidebarTitle {
+	font-size: 1.25rem;
+	margin-bottom: 1rem;
+}
+
+.dailyProgressContainer {
+	margin-bottom: 1.5rem;
+}
+
+.progressHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.progressLevel {
+	font-size: 0.875rem;
+	opacity: 0.6;
+}
+
+.progressCount {
+	font-size: 0.875rem;
+	color: #69b7f9;
+}
+
+.dailyGrid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 0.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.dailyItem {
+	position: relative;
+}
+
+.dailyBox {
+	width: 100%;
+	padding-top: 100%;
+	background-color: #2a313b;
+	border-radius: 6px;
+	border: 1px solid #3a424f;
+	position: relative;
+}
+
+.dailyActive {
+	border-color: #f4bc41;
+}
+
+.dailyIcon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 2rem;
+	height: 2rem;
+	opacity: 0.5;
+}
+
+.dailyActiveIcon {
+	opacity: 1;
+}
+
+.claimButton {
+	width: 100%;
+	height: 45px;
+	border-radius: 6px;
+	border: 2px solid #3a424f;
+	background: linear-gradient(to bottom, #79dc69, #68d45a);
+	box-shadow: 0px 4px 2px 0px #d3efbe inset, 0px -6px 0px 0px #439038 inset;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	text-align: center;
+}
+
+.claimButton:hover {
+	transform: translateY(-2px);
+	transition: transform 0.2s;
+}
+
+.claimButton:active {
+	transform: translateY(1px);
+}
+
+.buttonHighlight {
+	position: absolute;
+	inset: 2px;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+.buttonText {
+	position: relative;
+	color: white;
+	text-shadow: 0px 1px 0px #000;
+}
+
+.achievementTrackingContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.achievementTrackItem {
+	margin-bottom: 1rem;
+}
+
+.achievementTrackHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.achievementTrackName {
+	margin-right: 0.5rem;
+}
+
+.achievementTrackProgress {
+	color: #69b7f9;
+}
+
+.achievementTrackBar {
+	height: 8px;
+	background-color: #2a313b;
+	border-radius: 9999px;
+	overflow: hidden;
+}
+
+.achievementTrackFill {
+	height: 100%;
+	background: linear-gradient(to right, #69b7f9, #4086f8);
+}
+
+/* Modal */
+.modalOverlay {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	z-index: 50;
+}
+
+.modalContent {
+	background-color: #2a313b;
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+	max-width: 400px;
+	width: 100%;
+	text-align: center;
+}
+
+.rewardImage {
+	width: 120px;
+	height: 120px;
+	margin: 0 auto 1rem;
+}
+
+.modalTitle {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.modalSubtitle {
+	color: #69b7f9;
+	margin-bottom: 1.5rem;
+}
+
+.modalReward {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	font-size: 1.25rem;
+	margin-bottom: 2rem;
+}
+
+.modalRewardIcon {
+	width: 2rem;
+	height: 2rem;
+}
+
+.modalRewardValue {
+	color: #f4bc41;
+}

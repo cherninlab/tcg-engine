@@ -1,5 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { CreateDeckSchema, DeckSchema, UpdateDeckSchema } from '@tcg-game-template/common/src';
+import { CreateDeckSchema, DeckSchema, UpdateDeckSchema } from '@rism-tcg/common/src';
 import { DeckService } from '../services/DeckService';
 import { route } from '../utils/api';
 

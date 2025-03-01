@@ -1,8 +1,8 @@
 {
-	"name": "tcg-game-template",
+	"name": "rism-tcg",
 	"version": "0.0.1",
 	"private": true,
-	"description": "Trading Card Game template with Cloudflare backend and React frontends",
+	"description": "Rism - A Trading Card Game",
 	"workspaces": [
 		"server",
 		"admin",

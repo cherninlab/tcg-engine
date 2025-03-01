@@ -1,5 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { ActionResponseSchema, ActionSchema } from '@tcg-game-template/common/src';
+import { ActionResponseSchema, ActionSchema } from '@rism-tcg/common/src';
 import { ActionService } from '../services/ActionService';
 import { route } from '../utils/api';
 

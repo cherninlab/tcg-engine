@@ -1,17 +1,10 @@
+import { CardComponentProps } from '@rism-tcg/common/src/types/ui';
 import React from 'react';
-import { Card as CardType } from '../../types/game';
-import './Card.css';
+import styles from './Card.module.css';
 
-interface CardProps {
-	card: CardType;
-	isSelected?: boolean;
-	isPlayable?: boolean;
-	onClick?: () => void;
-}
-
-const Card: React.FC<CardProps> = ({ card, isSelected = false, isPlayable = true, onClick }) => {
+const Card: React.FC<CardComponentProps> = ({ card, onClick, onDragStart, onDragEnd, className }) => {
 	const handleClick = () => {
-		if (isPlayable && onClick) {
+		if (card.isPlayable && onClick) {
 			onClick();
 		}
 	};
@@ -31,34 +24,40 @@ const Card: React.FC<CardProps> = ({ card, isSelected = false, isPlayable = true
 
 	return (
 		<div
-			className={`game-card ${isSelected ? 'selected' : ''} ${isPlayable ? 'playable' : 'disabled'}`}
+			className={`${styles.gameCard} ${card.isSelected ? styles.selected : ''} ${card.isPlayable ? styles.playable : styles.disabled} ${
+				className || ''
+			}`}
 			onClick={handleClick}
+			onDragStart={onDragStart}
+			onDragEnd={onDragEnd}
+			draggable={card.isPlayable}
 			style={{
 				borderColor: getRarityColor(card.rarity),
 			}}
 		>
-			<div className="card-cost">{card.cost}</div>
-			<div className="card-image">
+			<div className={styles.cardCost}>{card.cost}</div>
+			<div className={styles.cardImage}>
 				<img src={card.imageUrl} alt={card.name} />
 			</div>
-			<div className="card-name">{card.name}</div>
-			<div className="card-type">{card.type}</div>
+			<div className={styles.cardName}>{card.name}</div>
+			<div className={styles.cardType}>{card.type}</div>
 			{card.type === 'creature' && (
-				<div className="card-stats">
-					<span className="attack">{card.attack}</span>
-					<span className="defense">{card.defense}</span>
+				<div className={styles.cardStats}>
+					<span className={styles.attack}>{card.attack}</span>
+					<span className={styles.defense}>{card.defense}</span>
 				</div>
 			)}
-			<div className="card-description">{card.description}</div>
-			{card.effects.length > 0 && (
-				<div className="card-effects">
-					{card.effects.map((effect, index) => (
-						<div key={index} className="effect">
-							{effect.description}
-						</div>
-					))}
-				</div>
-			)}
+			<div className={styles.cardDescription}>{card.description || card.displayEffect}</div>
+			{card.animations?.map((animation, index) => (
+				<div
+					key={`${animation.type}-${index}`}
+					className={`${styles.animation} ${styles[animation.type]}`}
+					style={{
+						animationDuration: `${animation.duration}ms`,
+						animationDelay: animation.delay ? `${animation.delay}ms` : undefined,
+					}}
+				/>
+			))}
 		</div>
 	);
 };

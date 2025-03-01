@@ -11,4 +11,5 @@ interface Env {
 	ENVIRONMENT: string;
 	CARD_IMAGES: R2Bucket;
 	GAME_ASSETS: R2Bucket;
+	RESEND_API_KEY: string;
 }

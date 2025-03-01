@@ -1,0 +1,161 @@
+/* Button root styles */
+.root {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	border-radius: 0.5rem;
+	font-weight: 500;
+	transition: all 0.2s;
+	cursor: pointer;
+	white-space: nowrap;
+	border: none;
+}
+
+.root:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Sizes */
+.size-sm {
+	height: 2rem;
+	padding: 0 0.75rem;
+	font-size: 0.875rem;
+}
+
+.size-md {
+	height: 2.5rem;
+	padding: 0 1rem;
+	font-size: 1rem;
+}
+
+.size-lg {
+	height: 3rem;
+	padding: 0 1.5rem;
+	font-size: 1.125rem;
+}
+
+/* Variants */
+.primary {
+	background: var(--primary-color, #2563eb);
+	color: white;
+}
+
+.primary:hover:not(:disabled) {
+	background: var(--primary-hover, #1d4ed8);
+}
+
+.secondary {
+	background: var(--secondary-color, #4b5563);
+	color: white;
+}
+
+.secondary:hover:not(:disabled) {
+	background: var(--secondary-hover, #374151);
+}
+
+.outline {
+	background: transparent;
+	border: 2px solid var(--primary-color, #2563eb);
+	color: var(--primary-color, #2563eb);
+}
+
+.outline:hover:not(:disabled) {
+	background: var(--primary-color, #2563eb);
+	color: white;
+}
+
+.ghost {
+	background: transparent;
+	color: var(--text-color, #111827);
+}
+
+.ghost:hover:not(:disabled) {
+	background: var(--hover-bg, rgba(0, 0, 0, 0.05));
+}
+
+/* Loading state */
+.loading {
+	cursor: wait;
+}
+
+.spinner {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.spinnerSvg {
+	animation: spin 1s linear infinite;
+	width: 1.25em;
+	height: 1.25em;
+}
+
+.spinnerCircle {
+	stroke: currentColor;
+	stroke-linecap: round;
+	animation: dash 1.5s ease-in-out infinite;
+}
+
+.content {
+	visibility: visible;
+}
+
+.loading .content {
+	visibility: hidden;
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes dash {
+	0% {
+		stroke-dasharray: 1, 150;
+		stroke-dashoffset: 0;
+	}
+	50% {
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: -35;
+	}
+	100% {
+		stroke-dasharray: 90, 150;
+		stroke-dashoffset: -124;
+	}
+}
+
+/* Icon positioning */
+.startIcon {
+	margin-right: var(--spacing-2);
+}
+
+.endIcon {
+	margin-left: var(--spacing-2);
+}
+
+/* Tooltip */
+.tooltip {
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: var(--spacing-1) var(--spacing-2);
+	background: var(--color-gray-900);
+	color: var(--color-white);
+	font-size: var(--font-size-sm);
+	border-radius: var(--radius-sm);
+	white-space: nowrap;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.2s ease;
+}
+
+.root:hover .tooltip {
+	opacity: 1;
+	visibility: visible;
+	transform: translateX(-50%) translateY(-8px);
+}

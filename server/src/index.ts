@@ -35,7 +35,7 @@ app.use(
 const openAPIConfig = {
 	openapi: '3.0.0',
 	info: {
-		title: 'TCG Engine API',
+		title: 'Rism Trading Card Game API',
 		version: '1.0.0',
 		description: 'A high-performance, type-safe card game engine API',
 	},
@@ -57,7 +57,7 @@ app.doc('/openapi.json', openAPIConfig);
 app.get(
 	'/reference',
 	apiReference({
-		pageTitle: 'TCG Engine API Reference',
+		pageTitle: 'Rism Trading Card Game API Reference',
 		theme: 'default',
 		spec: {
 			url: '/openapi.json',

@@ -1,4 +1,4 @@
-import { GameConfig } from '@tcg-game-template/common/src';
+import { GameConfig } from '@rism-tcg/common/src';
 
 export const gameConfig: GameConfig = {
 	deck: {

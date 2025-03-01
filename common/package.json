@@ -1,7 +1,7 @@
 {
-	"name": "@tcg/common",
+	"name": "@rism-tcg/common",
 	"version": "0.0.1",
-	"description": "Common code for TCG game",
+	"description": "Common code for Rism Trading Card Game",
 	"private": true,
 	"type": "module",
 	"main": "dist/index.js",
@@ -9,7 +9,9 @@
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"build": "tsc",
-		"dev": "tsc --watch"
+		"dev": "tsc --watch",
+		"cosmos": "cosmos",
+		"cosmos-export": "cosmos-export"
 	},
 	"dependencies": {
 		"@mantine/core": "^7.5.1",
@@ -26,8 +28,10 @@
 		"@types/react": "^18.2.0",
 		"@types/react-dom": "^18.2.0",
 		"@vitejs/plugin-react": "^4.3.4",
+		"react-cosmos": "^6.2.3",
+		"react-cosmos-plugin-vite": "^6.2.0",
 		"typescript": "~5.3.3",
 		"vite": "^6.0.3",
-		"vite-plugin-dts": "^3.7.3"
+		"vite-plugin-dts": "^4.5.1"
 	}
 }

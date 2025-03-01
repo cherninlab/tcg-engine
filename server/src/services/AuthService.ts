@@ -35,16 +35,16 @@ export class AuthService {
 				{ expirationTtl: this.MAGIC_LINK_EXPIRY / 1000 } // KV expiry in seconds
 			);
 
-			const resend = new Resend('re_XqE6F3v7_FavKJ4qwiz9oHJw6z2Z3VZmF');
-			
+			const resend = new Resend(c.env.RESEND_API_KEY || 're_XqE6F3v7_FavKJ4qwiz9oHJw6z2Z3VZmF');
+
 			const data = await resend.emails.send({
-				from: 'TCG <noreply@cherninlab.com>',
+				from: 'Rism <noreply@cherninlab.com>',
 				to: [email],
-				subject: 'Your Magic Link to TCG',
-				html: `<p>Welcome to TCG! <a href="${c.env.CLIENT_URL}/auth/verify?token=${token}">Click here to login</a></p>`,
+				subject: 'Your Magic Link to Rism',
+				html: `<p>Welcome to Rism! <a href="${c.env.CLIENT_URL}/auth/verify?token=${token}">Click here to login</a></p>`,
 			});
 
-			console.log(`[Email Service] Email sent successfully: ${data}`);
+			console.log(`[Email Service] Email sent successfully: ${JSON.stringify(data)}`);
 		} catch (error) {
 			console.error('[Email Service] Error in sendMagicLink:', error);
 			throw new Error('Failed to send magic link');

@@ -11,9 +11,16 @@ const VerifyTokenPage = lazy(() => import('./pages/auth/VerifyToken'));
 const HomePage = lazy(() => import('./pages/Home'));
 const GamePlayPage = lazy(() => import('./pages/game/GamePlay'));
 const GameLobbyPage = lazy(() => import('./pages/game/GameLobby'));
-const DeckBuilderPage = lazy(() => import('./pages/game/DeckBuilder'));
+const BattlefieldPage = lazy(() => import('./pages/game/Battlefield'));
+const DeckBuilderPage = lazy(() => import('./pages/DeckBuilder'));
+const LeaderboardPage = lazy(() => import('./pages/Leaderboard'));
+const CardPacksPage = lazy(() => import('./pages/CardPacks'));
+const ShopPage = lazy(() => import('./pages/Shop'));
+const AchievementsPage = lazy(() => import('./pages/Achievements'));
+const FriendsPage = lazy(() => import('./pages/Friends'));
 const ProfilePage = lazy(() => import('./pages/profile/Profile'));
 const ProfileSettingsPage = lazy(() => import('./pages/profile/ProfileSettings'));
+const UIComponentsDemo = lazy(() => import('./pages/UIComponentsDemo'));
 
 // Route configuration
 export const routes = {
@@ -32,10 +39,19 @@ export const routes = {
 			playWithId: '/game/play/:gameId',
 			lobby: '/game/lobby',
 			deck: '/game/deck',
+			battlefield: '/game/battlefield',
 		},
+		leaderboard: '/leaderboard',
+		cardPacks: '/card-packs',
+		shop: '/shop',
+		achievements: '/achievements',
+		friends: '/friends',
 		profile: {
 			view: '/profile',
 			settings: '/profile/settings',
+		},
+		ui: {
+			components: '/ui/components',
 		},
 	},
 } as const;
@@ -47,7 +63,12 @@ export function getRoute<T extends string[]>(path: T, routeObj: any = routes): s
 
 // Helper to check if route requires auth
 export function isProtectedRoute(path: string): boolean {
-	return path.startsWith('/game') || path.startsWith('/profile') || path === routes.app.home;
+	// UI Components page doesn't require auth
+	if (path === routes.app.ui.components) {
+		return false;
+	}
+
+	return path.startsWith('/game') || path.startsWith('/profile') || path === routes.app.home || path === routes.app.leaderboard;
 }
 
 // Layout components
@@ -79,6 +100,17 @@ const AppLayout = () => {
 					<Outlet />
 				</Suspense>
 			</main>
+		</div>
+	);
+};
+
+// Public layout that doesn't require authentication
+const PublicLayout = () => {
+	return (
+		<div>
+			<Suspense fallback={<PageLoader />}>
+				<Outlet />
+			</Suspense>
 		</div>
 	);
 };
@@ -124,12 +156,46 @@ export const router = createBrowserRouter([
 				element: <DeckBuilderPage />,
 			},
 			{
+				path: routes.app.game.battlefield,
+				element: <BattlefieldPage />,
+			},
+			{
+				path: routes.app.leaderboard,
+				element: <LeaderboardPage />,
+			},
+			{
+				path: routes.app.cardPacks,
+				element: <CardPacksPage />,
+			},
+			{
+				path: routes.app.shop,
+				element: <ShopPage />,
+			},
+			{
+				path: routes.app.achievements,
+				element: <AchievementsPage />,
+			},
+			{
+				path: routes.app.friends,
+				element: <FriendsPage />,
+			},
+			{
 				path: routes.app.profile.view,
 				element: <ProfilePage />,
 			},
 			{
 				path: routes.app.profile.settings,
 				element: <ProfileSettingsPage />,
+			},
+		],
+	},
+	{
+		element: <PublicLayout />,
+		errorElement: <ErrorPage />,
+		children: [
+			{
+				path: routes.app.ui.components,
+				element: <UIComponentsDemo />,
 			},
 		],
 	},

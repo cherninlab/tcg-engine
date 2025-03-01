@@ -1,0 +1,232 @@
+/* Import base card styles */
+.root {
+	composes: root from '../BaseCard/BaseCard.module.css';
+	--card-width: 200px;
+	--card-height: 280px;
+	width: var(--card-width);
+	height: var(--card-height);
+	background: linear-gradient(135deg, #333, #111);
+	position: relative;
+	overflow: hidden;
+}
+
+/* Element backgrounds */
+.element {
+	position: absolute;
+	inset: 0;
+	opacity: 0.7;
+	z-index: 0;
+}
+
+.element-fire {
+	background: radial-gradient(circle, rgba(255, 107, 0, 0.7) 0%, rgba(200, 0, 0, 0.8) 100%);
+}
+
+.element-water {
+	background: radial-gradient(circle, rgba(0, 147, 233, 0.7) 0%, rgba(0, 59, 119, 0.8) 100%);
+}
+
+.element-earth {
+	background: radial-gradient(circle, rgba(76, 175, 80, 0.7) 0%, rgba(27, 94, 32, 0.8) 100%);
+}
+
+.element-air {
+	background: radial-gradient(circle, rgba(189, 189, 189, 0.7) 0%, rgba(117, 117, 117, 0.8) 100%);
+}
+
+.element-light {
+	background: radial-gradient(circle, rgba(255, 236, 179, 0.7) 0%, rgba(255, 193, 7, 0.8) 100%);
+}
+
+.element-dark {
+	background: radial-gradient(circle, rgba(79, 55, 139, 0.7) 0%, rgba(49, 27, 82, 0.8) 100%);
+}
+
+/* Rarity styles */
+.rarity-common {
+	--card-glow: rgba(140, 140, 140, 0.7);
+}
+
+.rarity-uncommon {
+	--card-glow: rgba(60, 159, 64, 0.7);
+}
+
+.rarity-rare {
+	--card-glow: rgba(46, 134, 222, 0.7);
+}
+
+.rarity-epic {
+	--card-glow: rgba(142, 68, 173, 0.8);
+}
+
+.rarity-legendary {
+	--card-glow: rgba(231, 76, 60, 0.9);
+}
+
+/* Badge styles */
+.badge {
+	padding: 8px;
+	display: flex;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+}
+
+/* Content area */
+.content {
+	composes: content from '../BaseCard/BaseCard.module.css';
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Image container */
+.imageContainer {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+}
+
+/* SVG container */
+.svgContainer {
+	position: relative;
+	z-index: 2;
+	color: rgba(255, 255, 255, 0.9);
+	filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+/* Description */
+.description {
+	position: relative;
+	z-index: 2;
+	color: white;
+	text-align: center;
+	padding: 1rem;
+	background: rgba(0, 0, 0, 0.7);
+	border-radius: 8px;
+	margin: 1rem;
+}
+
+/* Footer styles */
+.footer {
+	composes: footer from '../BaseCard/BaseCard.module.css';
+	padding: 10px;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title {
+	color: white;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.stats {
+	display: flex;
+	gap: 8px;
+}
+
+.stat {
+	color: #ffcc00;
+	font-weight: bold;
+	font-size: 14px;
+	background: rgba(0, 0, 0, 0.5);
+	padding: 2px 6px;
+	border-radius: 4px;
+	border: 1px solid rgba(255, 204, 0, 0.5);
+}
+
+/* Effect styles */
+.shine {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 3;
+	mix-blend-mode: overlay;
+	transition: background 0.1s ease;
+}
+
+.glow {
+	position: absolute;
+	inset: -2px;
+	background: var(--card-glow);
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	filter: blur(15px);
+	z-index: -1;
+	border-radius: inherit;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+	.root {
+		--card-width: 160px;
+		--card-height: 224px;
+	}
+
+	.title {
+		font-size: 12px;
+	}
+
+	.stat {
+		font-size: 12px;
+		padding: 1px 4px;
+	}
+
+	.description {
+		font-size: 12px;
+		padding: 0.5rem;
+		margin: 0.5rem;
+	}
+}
+
+.playable {
+	cursor: pointer;
+}
+
+.playable:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+.highlighted {
+	animation: pulse 2s infinite;
+}
+
+.withEffects {
+	transition: all 0.3s ease;
+}
+
+.withEffects::before {
+	content: '';
+	position: absolute;
+	inset: -2px;
+	background: linear-gradient(45deg, #2563eb, #16a34a);
+	border-radius: 14px;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+	z-index: -1;
+}
+
+.withEffects:hover::before {
+	opacity: 1;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+	}
+	70% {
+		box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+	}
+}

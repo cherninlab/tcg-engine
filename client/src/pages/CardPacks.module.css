@@ -1,0 +1,387 @@
+.container {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	font-family: 'Russo One', sans-serif;
+	color: white;
+	overflow: hidden;
+}
+
+.backgroundImage {
+	position: absolute;
+	inset: 0;
+	background-image: url('https://placehold.co/1920x1080');
+	background-size: cover;
+	background-position: center;
+	opacity: 0.2;
+}
+
+.backgroundGradient {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, rgba(26, 30, 42, 0.9), #1a1e2a);
+}
+
+.contentWrapper {
+	position: relative;
+	z-index: 10;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+/* Initial state - Pack selection */
+.packSelectionContainer {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.titleContainer {
+	text-align: center;
+	margin-bottom: 2rem;
+}
+
+.title {
+	font-size: 2.5rem;
+	margin-bottom: 1rem;
+}
+
+.subtitle {
+	color: #69b7f9;
+}
+
+.packGrid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.packCard {
+	position: relative;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.packCard:hover {
+	transform: translateY(-5px);
+}
+
+.packCardGlow {
+	position: absolute;
+	inset: -2px;
+	border-radius: 12px;
+	background: linear-gradient(to bottom, #69b7f9, #4086f8);
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+
+.packCard:hover .packCardGlow {
+	opacity: 1;
+}
+
+.packCardContent {
+	position: relative;
+	background: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 10px;
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.packImage {
+	width: 100%;
+	border-radius: 8px;
+	margin-bottom: 1rem;
+	transform: scale(1);
+	transition: transform 0.3s;
+}
+
+.packCard:hover .packImage {
+	transform: scale(1.05);
+}
+
+.packTitle {
+	font-size: 1.25rem;
+	margin-bottom: 0.5rem;
+	text-transform: capitalize;
+}
+
+.packPrice {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.coinIcon {
+	width: 20px;
+	height: 20px;
+}
+
+.priceValue {
+	color: #f4bc41;
+}
+
+/* Card opening state */
+.cardOpeningContainer {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.cardsGrid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 1rem;
+	perspective: 1000px;
+}
+
+.cardWrapper {
+	width: 140px;
+	height: 200px;
+	cursor: pointer;
+	transition: transform 0.2s;
+}
+
+.cardWrapper:hover {
+	transform: scale(1.05);
+}
+
+.cardInner {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	transition: transform 0.5s;
+	transform-style: preserve-3d;
+}
+
+.cardFlipped {
+	transform: rotateY(180deg);
+}
+
+.cardFace {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	backface-visibility: hidden;
+}
+
+.cardBack {
+	border-radius: 12px;
+	background: linear-gradient(to bottom, #69b7f9, #4086f8);
+	padding: 2px;
+}
+
+.cardBackInner {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	background: #2a313b;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cardBackImage {
+	width: 60px;
+	height: 60px;
+}
+
+.cardFront {
+	transform: rotateY(180deg);
+	border-radius: 12px;
+}
+
+.cardImage {
+	width: 100%;
+	height: 100%;
+	border-radius: 10px;
+	object-fit: cover;
+}
+
+/* Revealed cards grid */
+.revealedGrid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.revealedCard {
+	position: relative;
+	transition: transform 0.2s;
+}
+
+.revealedCard:hover {
+	transform: scale(1.05);
+}
+
+.cardBorder {
+	position: absolute;
+	inset: -2px;
+	border-radius: 12px;
+}
+
+.cardContent {
+	position: relative;
+	background: #2a313b;
+	border-radius: 10px;
+	padding: 4px;
+}
+
+.cardLabel {
+	position: absolute;
+	bottom: 4px;
+	left: 4px;
+	right: 4px;
+	text-align: center;
+	padding: 0.25rem;
+	border-radius: 4px;
+	font-size: 0.875rem;
+}
+
+/* Buttons */
+.buttonContainer {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.button {
+	height: 53px;
+	padding: 0 2rem;
+	border-radius: 6px;
+	border: 2px solid #3a424f;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	transition: transform 0.1s;
+}
+
+.button:active {
+	transform: translateY(2px);
+}
+
+.primaryButton {
+	background: linear-gradient(to bottom, #69b7f9, #4086f8);
+	box-shadow: 0px 4px 2px 0px #64d3fe inset, 0px -6px 0px 0px #2054a0 inset;
+}
+
+.secondaryButton {
+	background: linear-gradient(to bottom, #8a55ed, #7636e4);
+	box-shadow: 0px 4px 2px 0px #b68fff inset, 0px -6px 0px 0px #5128a8 inset;
+}
+
+.buttonHighlight {
+	position: absolute;
+	inset: 2px;
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.buttonText {
+	position: relative;
+	font-size: 1.25rem;
+	color: white;
+	text-shadow: 0px 1px 0px #000;
+}
+
+/* Modal */
+.modalOverlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 50;
+}
+
+.modalCard {
+	position: relative;
+	transform: scale(1.5);
+}
+
+/* Rarity styles */
+.commonCard {
+	background: linear-gradient(to bottom, #69b7f9, #69b7f988);
+	box-shadow: 0 0 20px rgba(105, 183, 249, 0.5);
+}
+
+.rareCard {
+	background: linear-gradient(to bottom, #8a55ed, #8a55ed88);
+	box-shadow: 0 0 20px rgba(138, 85, 237, 0.5);
+}
+
+.epicCard {
+	background: linear-gradient(to bottom, #f4bc41, #f4bc4188);
+	box-shadow: 0 0 20px rgba(244, 188, 65, 0.5);
+}
+
+.legendaryCard {
+	background: linear-gradient(to bottom, #dd4d44, #dd4d4488);
+	box-shadow: 0 0 30px rgba(221, 77, 68, 0.7);
+}
+
+.commonLabel {
+	background: #69b7f944;
+}
+
+.rareLabel {
+	background: #8a55ed44;
+}
+
+.epicLabel {
+	background: #f4bc4144;
+}
+
+.legendaryLabel {
+	background: #dd4d4444;
+}
+
+/* Animation for card reveal */
+@keyframes cardReveal {
+	0% {
+		transform: rotateY(0deg);
+	}
+	100% {
+		transform: rotateY(180deg);
+	}
+}
+
+.revealAnimation {
+	animation: cardReveal 0.5s forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+	.packGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.cardsGrid,
+	.revealedGrid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 576px) {
+	.packGrid {
+		grid-template-columns: 1fr;
+	}
+
+	.cardsGrid,
+	.revealedGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.buttonContainer {
+		flex-direction: column;
+	}
+}

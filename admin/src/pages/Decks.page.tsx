@@ -1,7 +1,7 @@
 import { Button, Card, Group, LoadingOverlay, Modal, ScrollArea, Select, Stack, Table, Text, TextInput, Textarea } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { Card as CardType } from '@tcg-game-template/common/src/types/card';
-import { Deck } from '@tcg-game-template/common/src/types/deck';
+import { Card as CardType } from '@rism-tcg/common/src/types/card';
+import { Deck } from '@rism-tcg/common/src/types/deck';
 import { useEffect, useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 

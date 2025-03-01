@@ -1,6 +1,6 @@
 import { Avatar, Badge, Button, Card, Group, Modal, Stack, Table, Text, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
-import { Player } from '@tcg-game-template/common/src/types/player';
+import { Player } from '@rism-tcg/common/src/types/player';
 import { useEffect, useState } from 'react';
 
 interface PlayerFormValues {

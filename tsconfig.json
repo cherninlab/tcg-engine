@@ -17,8 +17,8 @@
 		"noFallthroughCasesInSwitch": true,
 		"baseUrl": ".",
 		"paths": {
-			"@tcg/common/*": ["common/src/*"],
-			"@tcg/common": ["common/src"]
+			"@rism-tcg/common/*": ["common/src/*"],
+			"@rism-tcg/common": ["common/src"]
 		}
 	}
 }

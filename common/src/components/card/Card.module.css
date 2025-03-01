@@ -1,0 +1,386 @@
+/* Base card styles */
+.root {
+	--card-width: 200px;
+	--card-height: 280px;
+	--card-radius: 12px;
+	--card-padding: 12px;
+	--card-bg: var(--color-background, #1a1b1e);
+	--card-border: var(--color-border, rgba(255, 255, 255, 0.1));
+	--card-text: var(--color-text, #ffffff);
+	--card-glow: var(--color-primary, #4086f8);
+	--card-transition: 0.2s ease;
+
+	position: relative;
+	width: var(--card-width);
+	height: var(--card-height);
+	border-radius: var(--card-radius);
+	background: var(--card-bg);
+	color: var(--card-text);
+	overflow: hidden;
+	transition: all var(--card-transition);
+}
+
+/* Frame styles */
+.frame {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	border: 2px solid var(--card-border);
+	border-radius: inherit;
+	background: linear-gradient(135deg, #333, #111);
+	overflow: hidden;
+}
+
+/* Header styles */
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--card-padding);
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 2;
+}
+
+.name {
+	font-weight: bold;
+	font-size: 14px;
+	color: white;
+	flex: 1;
+}
+
+.cost {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.5);
+	border: 1px solid rgba(255, 204, 0, 0.5);
+	color: #ffcc00;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 14px;
+	margin-left: 8px;
+}
+
+/* Art styles */
+.art {
+	height: 140px;
+	background-size: cover;
+	background-position: center;
+	border-bottom: 1px solid var(--card-border);
+	z-index: 1;
+}
+
+/* Content styles */
+.content {
+	flex: 1;
+	padding: var(--card-padding);
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	z-index: 2;
+}
+
+.effect {
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+}
+
+/* Footer styles */
+.footer {
+	padding: var(--card-padding);
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 2;
+}
+
+.stats {
+	display: flex;
+	gap: 16px;
+	margin-left: auto;
+}
+
+.attack,
+.defense {
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.attack {
+	color: #ff4444;
+	border: 1px solid rgba(255, 68, 68, 0.5);
+}
+
+.defense {
+	color: #44ff44;
+	border: 1px solid rgba(68, 255, 68, 0.5);
+}
+
+/* Card types */
+.type-creature {
+	--card-glow: var(--color-creature, #ff4444);
+}
+
+.type-spell {
+	--card-glow: var(--color-spell, #4444ff);
+}
+
+.type-artifact {
+	--card-glow: var(--color-artifact, #44ff44);
+}
+
+/* Card rarities */
+.rarity-common {
+	--card-glow: rgba(140, 140, 140, 0.7);
+}
+
+.rarity-uncommon {
+	--card-glow: rgba(60, 159, 64, 0.7);
+}
+
+.rarity-rare {
+	--card-glow: rgba(46, 134, 222, 0.7);
+}
+
+.rarity-legendary {
+	--card-glow: rgba(231, 76, 60, 0.9);
+}
+
+/* Card variants */
+.default {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.enhanced {
+	--card-width: 240px;
+	--card-height: 336px;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.compact {
+	--card-width: 160px;
+	--card-height: 224px;
+	--card-padding: 8px;
+	font-size: 12px;
+}
+
+.detailed {
+	--card-width: 280px;
+	--card-height: 392px;
+	--card-padding: 16px;
+}
+
+/* Interactive states */
+.interactive {
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactive:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.selected {
+	box-shadow: 0 0 0 2px var(--card-glow);
+}
+
+.disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+/* Effect styles */
+.hasEffects {
+	transform-style: preserve-3d;
+	perspective: 1000px;
+}
+
+.shine {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 3;
+	mix-blend-mode: overlay;
+	transition: background 0.1s ease;
+}
+
+.glow {
+	position: absolute;
+	inset: -2px;
+	background: var(--card-glow);
+	opacity: 0;
+	transition: opacity 0.2s ease;
+	filter: blur(15px);
+	z-index: -1;
+	border-radius: inherit;
+}
+
+/* Animation styles */
+.animation {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	z-index: 10;
+}
+
+.animation-enter {
+	animation: enter-animation;
+}
+
+.animation-exit {
+	animation: exit-animation;
+}
+
+.animation-attack {
+	animation: attack-animation;
+}
+
+.animation-damage {
+	animation: damage-animation;
+}
+
+.animation-heal {
+	animation: heal-animation;
+}
+
+.animation-buff {
+	animation: buff-animation;
+}
+
+.animation-debuff {
+	animation: debuff-animation;
+}
+
+/* Animation keyframes */
+@keyframes enter-animation {
+	from {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes exit-animation {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.8);
+	}
+}
+
+@keyframes attack-animation {
+	0% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(20px);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes damage-animation {
+	0% {
+		background: transparent;
+	}
+	50% {
+		background: rgba(255, 0, 0, 0.3);
+	}
+	100% {
+		background: transparent;
+	}
+}
+
+@keyframes heal-animation {
+	0% {
+		background: transparent;
+	}
+	50% {
+		background: rgba(0, 255, 0, 0.3);
+	}
+	100% {
+		background: transparent;
+	}
+}
+
+@keyframes buff-animation {
+	0% {
+		filter: brightness(1);
+	}
+	50% {
+		filter: brightness(1.5);
+	}
+	100% {
+		filter: brightness(1);
+	}
+}
+
+@keyframes debuff-animation {
+	0% {
+		filter: brightness(1);
+	}
+	50% {
+		filter: brightness(0.5);
+	}
+	100% {
+		filter: brightness(1);
+	}
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+	.root {
+		--card-width: 160px;
+		--card-height: 224px;
+		--card-padding: 8px;
+	}
+
+	.name,
+	.cost,
+	.attack,
+	.defense {
+		font-size: 12px;
+	}
+
+	.effect {
+		font-size: 10px;
+	}
+
+	.enhanced {
+		--card-width: 200px;
+		--card-height: 280px;
+	}
+
+	.compact {
+		--card-width: 120px;
+		--card-height: 168px;
+		--card-padding: 6px;
+	}
+
+	.detailed {
+		--card-width: 240px;
+		--card-height: 336px;
+		--card-padding: 12px;
+	}
+}

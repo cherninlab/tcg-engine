@@ -1,0 +1,610 @@
+.container {
+	font-family: 'Russo One', system-ui, sans-serif;
+	min-height: 100vh;
+	width: 100%;
+	background-color: #1a1e2a;
+	color: white;
+	position: relative;
+	overflow: hidden;
+}
+
+.backgroundImage {
+	position: absolute;
+	inset: 0;
+	background-size: cover;
+	background-position: center;
+	opacity: 0.2;
+}
+
+.backgroundGradient {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, rgba(26, 30, 42, 0.9), #1a1e2a);
+}
+
+.gameWrapper {
+	position: relative;
+	z-index: 10;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	padding: 16px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.playerInfo {
+	display: flex;
+	align-items: center;
+	gap: 24px;
+}
+
+.avatarContainer {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border: 2px solid #3a424f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.avatarImage {
+	width: 32px;
+	height: 32px;
+}
+
+.playerName {
+	font-size: 14px;
+	opacity: 0.6;
+}
+
+.playerHealth {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.healthValue {
+	color: #dd4d44;
+}
+
+.healthLabel {
+	font-size: 14px;
+	opacity: 0.6;
+}
+
+.manaContainer {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.manaOrb {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+}
+
+.manaFilled {
+	background-color: #69b7f9;
+}
+
+.manaEmpty {
+	background-color: #3a424f;
+}
+
+.gameControls {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.gameStatus {
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 8px;
+	border: 1px solid #3a424f;
+	padding: 8px 16px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.statusItem {
+	text-align: center;
+}
+
+.statusLabel {
+	font-size: 14px;
+	opacity: 0.6;
+}
+
+.turnNumber {
+	font-size: 16px;
+}
+
+.phaseText {
+	color: #69b7f9;
+	font-size: 16px;
+}
+
+.timerText {
+	color: #f4bc41;
+	font-size: 16px;
+}
+
+.surrenderButton {
+	height: 45px;
+	padding: 0 24px;
+	border-radius: 6px;
+	border: 2px solid #3a424f;
+	background: linear-gradient(to bottom, #dd4d44, #d83f39);
+	box-shadow: 0px 4px 2px 0px #fd9c9b inset, 0px -6px 0px 0px #93281e inset;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.buttonHighlight {
+	position: absolute;
+	inset: 2px;
+	border-radius: 4px;
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.buttonText {
+	position: relative;
+	color: white;
+	text-shadow: 0px 1px 0px #000;
+	font-weight: 600;
+}
+
+.main {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 16px;
+	position: relative;
+}
+
+.arrowCanvas {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	filter: url(#glow);
+}
+
+.arrowPath {
+	fill: none;
+	stroke-width: 8;
+	stroke-linecap: round;
+}
+
+.arrowPathAttack {
+	stroke: url(#arrowGradient-attack);
+	filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.3));
+}
+
+.arrowPathSpell {
+	stroke: url(#arrowGradient-spell);
+	filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.3));
+}
+
+.arrowPathSupport {
+	stroke: url(#arrowGradient-support);
+	filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.3));
+}
+
+.arrowOutlineAttack {
+	stroke: #ff8b84;
+	filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.5));
+}
+
+.arrowOutlineSpell {
+	stroke: #a9d7fc;
+	filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.5));
+}
+
+.arrowOutlineSupport {
+	stroke: #a9efa2;
+	filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.5));
+}
+
+.gameArea {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.opponentArea {
+	margin-bottom: 16px;
+}
+
+.handContainer {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 16px;
+	position: relative;
+}
+
+.opponentHandCount {
+	position: absolute;
+	top: -8px;
+	right: 0;
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 9999px;
+	padding: 4px 8px;
+	font-size: 14px;
+}
+
+.handCards {
+	display: flex;
+	gap: 8px;
+}
+
+.opponentCard {
+	width: 80px;
+	height: 112px;
+	background-color: #2a313b;
+	border-radius: 8px;
+	border: 2px solid #3a424f;
+	transform: rotate(180deg);
+}
+
+.fieldZones {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	gap: 16px;
+	padding: 0 32px;
+}
+
+.zoneLabel {
+	font-size: 14px;
+	opacity: 0.6;
+	margin-bottom: 8px;
+}
+
+.creaturesZone {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 16px;
+}
+
+.cardSlot {
+	width: 120px;
+	height: 160px;
+}
+
+.emptySlot {
+	width: 100%;
+	height: 100%;
+	border-radius: 8px;
+	border: 2px dashed #3a424f;
+	opacity: 0.5;
+}
+
+.cardContainer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.tappedCard {
+	opacity: 0.75;
+}
+
+.cardFrame {
+	position: absolute;
+	inset: 0;
+	border-radius: 8px;
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border: 2px solid #3a424f;
+}
+
+.targetableCard {
+	border-color: #dd4d44;
+	box-shadow: 0 0 20px rgba(221, 77, 68, 0.3);
+}
+
+.attackableCard {
+	border-color: #79dc69;
+	box-shadow: 0 0 20px rgba(121, 220, 105, 0.3);
+}
+
+.cardImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 6px;
+}
+
+.cardStats {
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	display: flex;
+	gap: 4px;
+}
+
+.powerStat {
+	background-color: rgba(26, 30, 42, 0.9);
+	backdrop-filter: blur(4px);
+	border-radius: 9999px;
+	padding: 4px 8px;
+	font-size: 12px;
+	color: #dd4d44;
+}
+
+.defenseStat {
+	background-color: rgba(26, 30, 42, 0.9);
+	backdrop-filter: blur(4px);
+	border-radius: 9999px;
+	padding: 4px 8px;
+	font-size: 12px;
+	color: #69b7f9;
+}
+
+.supportZone {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 8px;
+}
+
+.supportSlot {
+	width: 80px;
+	height: 80px;
+}
+
+.battlefieldDivider {
+	margin: 16px 0;
+	position: relative;
+}
+
+.deckArea {
+	position: absolute;
+	left: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.deckCounter {
+	width: 32px;
+	height: 48px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 4px;
+	border: 1px solid #3a424f;
+}
+
+.deckLabel {
+	font-size: 12px;
+	opacity: 0.6;
+}
+
+.deckCount {
+	font-size: 14px;
+}
+
+.graveyardZone {
+	width: 48px;
+	height: 64px;
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 4px;
+	border: 1px solid #3a424f;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.playerHand {
+	display: flex;
+	justify-content: center;
+	margin-top: 16px;
+	gap: 8px;
+}
+
+.handCard {
+	position: relative;
+	width: 120px;
+	height: 168px;
+	transition: transform 0.2s, margin-top 0.2s;
+	transform-origin: bottom center;
+	cursor: pointer;
+}
+
+.handCard:hover {
+	transform: scale(1.1);
+	margin-top: -20px;
+	z-index: 10;
+}
+
+.canPlayCard {
+	box-shadow: 0 0 20px rgba(121, 220, 105, 0.3);
+}
+
+.cannotPlayCard {
+	opacity: 0.7;
+}
+
+.cardPreview {
+	position: fixed;
+	z-index: 100;
+	width: 300px;
+	pointer-events: none;
+}
+
+.previewContent {
+	background-color: rgba(42, 49, 59, 0.95);
+	backdrop-filter: blur(8px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+	padding: 16px;
+}
+
+.previewImage {
+	width: 100%;
+	border-radius: 8px;
+	margin-bottom: 12px;
+}
+
+.previewTitle {
+	font-size: 20px;
+	margin-bottom: 4px;
+}
+
+.previewType {
+	color: #69b7f9;
+	margin-bottom: 8px;
+	font-size: 14px;
+}
+
+.previewEffect {
+	font-size: 14px;
+	color: rgba(255, 255, 255, 0.8);
+	margin-bottom: 8px;
+}
+
+.previewStats {
+	display: flex;
+	justify-content: space-between;
+	font-size: 14px;
+}
+
+.actionLog {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	width: 300px;
+	max-height: 200px;
+	overflow-y: auto;
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 8px;
+	border: 1px solid #3a424f;
+	padding: 8px;
+	font-size: 14px;
+}
+
+.logEntry {
+	padding: 4px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logEntryOpponent {
+	color: #dd4d44;
+}
+
+.logEntryPlayer {
+	color: #69b7f9;
+}
+
+.phaseButtons {
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+	display: flex;
+	gap: 8px;
+}
+
+.phaseButton {
+	padding: 8px 16px;
+	border-radius: 4px;
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border: 1px solid #3a424f;
+	color: white;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.phaseButton:hover {
+	background-color: rgba(62, 69, 79, 0.8);
+}
+
+.activePhase {
+	border-color: #69b7f9;
+	color: #69b7f9;
+}
+
+@keyframes dashOffset {
+	from {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: 20;
+	}
+}
+
+.animatedStroke {
+	stroke-dasharray: 10;
+	animation: dashOffset 1s linear infinite;
+}
+
+@media (max-width: 1200px) {
+	.creaturesZone {
+		gap: 8px;
+	}
+
+	.cardSlot {
+		width: 100px;
+		height: 140px;
+	}
+
+	.handCard {
+		width: 100px;
+		height: 140px;
+	}
+}
+
+@media (max-width: 900px) {
+	.cardSlot {
+		width: 80px;
+		height: 112px;
+	}
+
+	.supportSlot {
+		width: 60px;
+		height: 60px;
+	}
+
+	.handCard {
+		width: 80px;
+		height: 112px;
+	}
+
+	.cardStats {
+		bottom: 2px;
+		right: 2px;
+	}
+
+	.powerStat,
+	.defenseStat {
+		padding: 2px 4px;
+		font-size: 10px;
+	}
+}

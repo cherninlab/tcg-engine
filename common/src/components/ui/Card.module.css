@@ -1,0 +1,12 @@
+.card {
+	display: flex;
+	flex-direction: column;
+}
+
+.title {
+	margin-bottom: var(--card-gap, 16px);
+}
+
+.content {
+	flex: 1;
+}

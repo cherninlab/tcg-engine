@@ -6,7 +6,7 @@
 		"rootDir": "src",
 		"baseUrl": ".",
 		"paths": {
-			"@tcg/common/*": ["../common/src/*"]
+			"@rism-tcg/common/*": ["../common/src/*"]
 		}
 	},
 	"include": ["src"],

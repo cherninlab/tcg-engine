@@ -1,4 +1,4 @@
-import { Balance, Player, PurchaseItem, StoreItem } from '@tcg-game-template/common/src';
+import { Balance, Player, PurchaseItem, StoreItem } from '@rism-tcg/common/src';
 import { Context } from 'hono';
 import { gameConfig } from '../config/game';
 

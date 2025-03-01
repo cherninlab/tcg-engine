@@ -1,0 +1,589 @@
+.container {
+	position: relative;
+	min-height: 100vh;
+	width: 100%;
+	color: white;
+	font-family: 'Russo One', sans-serif;
+}
+
+.backgroundImage {
+	position: absolute;
+	inset: 0;
+	background-image: url('https://placehold.co/1920x1080');
+	background-size: cover;
+	background-position: center;
+	opacity: 0.2;
+	z-index: 0;
+}
+
+.backgroundGradient {
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(to bottom, rgba(26, 30, 42, 0.9), #1a1e2a);
+	z-index: 1;
+}
+
+.content {
+	position: relative;
+	z-index: 10;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 2rem 1rem;
+}
+
+.mainGrid {
+	display: grid;
+	grid-template-columns: 1fr 350px;
+	gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+	.mainGrid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* Main content - Left column */
+.mainContent {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+/* Friends Card */
+.card {
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+}
+
+.tabsContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 1.5rem;
+}
+
+.tabsGroup {
+	display: flex;
+	gap: 1rem;
+}
+
+.tabButton {
+	padding: 0.5rem 1.5rem;
+	border-radius: 6px;
+	font-size: 0.875rem;
+	border: 1px solid #3a424f;
+	background: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	color: rgba(255, 255, 255, 0.6);
+	cursor: pointer;
+	white-space: nowrap;
+}
+
+.tabButtonActive {
+	background: #79dc69;
+	color: white;
+	border-color: #79dc69;
+}
+
+.offlineTab {
+	background: #69b7f9;
+	color: white;
+	border-color: #69b7f9;
+}
+
+.requestsTab {
+	background: #f4bc41;
+	color: white;
+	border-color: #f4bc41;
+}
+
+.tabCount {
+	font-size: 0.75rem;
+}
+
+.searchContainer {
+	position: relative;
+}
+
+.searchInput {
+	width: 200px;
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border: 2px solid #3a424f;
+	border-radius: 4px;
+	padding: 0.5rem 0.75rem;
+	font-size: 0.875rem;
+	color: white;
+}
+
+.searchInput::placeholder {
+	color: rgba(255, 255, 255, 0.4);
+}
+
+/* Friend List */
+.friendsList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.friendCard {
+	position: relative;
+	cursor: pointer;
+}
+
+.friendBorder {
+	position: absolute;
+	inset: -2px;
+	border-radius: 8px;
+	background: linear-gradient(to right, #69b7f9, #4086f8);
+	opacity: 0;
+	transition: opacity 0.2s;
+	z-index: 0;
+}
+
+.friendCard:hover .friendBorder {
+	opacity: 1;
+}
+
+.friendContent {
+	position: relative;
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 6px;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	z-index: 1;
+}
+
+.avatar {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.friendInfo {
+	flex: 1;
+}
+
+.nameRow {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 0.25rem;
+}
+
+.friendName {
+	font-size: 1.125rem;
+	font-weight: bold;
+}
+
+.favoriteStar {
+	color: #f4bc41;
+}
+
+.statusRow {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.rankText {
+	font-size: 0.875rem;
+	color: #69b7f9;
+}
+
+.separator {
+	width: 0.25rem;
+	height: 0.25rem;
+	border-radius: 50%;
+	background-color: #3a424f;
+}
+
+.statusText {
+	font-size: 0.875rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.onlineStatus {
+	color: #79dc69;
+}
+
+.actionButtons {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.actionButton {
+	width: 40px;
+	height: 40px;
+	border-radius: 6px;
+	border: 2px solid #3a424f;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.chatButton {
+	background: linear-gradient(to bottom, #79dc69, #68d45a);
+	box-shadow: 0px 4px 2px 0px #d3efbe inset, 0px -6px 0px 0px #439038 inset;
+}
+
+.duelButton {
+	background: linear-gradient(to bottom, #f4bc41, #f5a73b);
+	box-shadow: 0px 4px 2px 0px #fae268 inset, 0px -6px 0px 0px #ae6425 inset;
+}
+
+.profileButton {
+	background: linear-gradient(to bottom, #69b7f9, #4086f8);
+	box-shadow: 0px 4px 2px 0px #64d3fe inset, 0px -6px 0px 0px #2054a0 inset;
+}
+
+.buttonHighlight {
+	position: absolute;
+	inset: 2px;
+	border-radius: 4px;
+	background-color: rgba(255, 255, 255, 0.12);
+}
+
+.buttonText {
+	position: relative;
+	color: white;
+	text-shadow: 0px 1px 0px #000;
+	font-size: 1.125rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+}
+
+/* Friend Request */
+.requestContent {
+	position: relative;
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 6px;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.requestInfo {
+	flex: 1;
+}
+
+.mutualFriends {
+	font-size: 0.875rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.requestButton {
+	height: 40px;
+	padding: 0 1rem;
+	border-radius: 6px;
+	border: 2px solid #3a424f;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+.acceptButton {
+	background: linear-gradient(to bottom, #79dc69, #68d45a);
+	box-shadow: 0px 4px 2px 0px #d3efbe inset, 0px -6px 0px 0px #439038 inset;
+}
+
+.declineButton {
+	background: linear-gradient(to bottom, #dd4d44, #d83f39);
+	box-shadow: 0px 4px 2px 0px #fd9c9b inset, 0px -6px 0px 0px #93281e inset;
+}
+
+/* Recent Matches */
+.matchCard {
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 6px;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.resultIcon {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+}
+
+.winResult {
+	background-color: #79dc69;
+}
+
+.lossResult {
+	background-color: #dd4d44;
+}
+
+.matchInfo {
+	flex: 1;
+}
+
+.opponentName {
+	font-size: 1.125rem;
+	margin-bottom: 0.25rem;
+}
+
+.deckName {
+	font-size: 0.875rem;
+	color: #69b7f9;
+}
+
+.matchTime {
+	font-size: 0.875rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* Sidebar - Right column */
+.profileCard {
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+.cardTitle {
+	font-size: 1.25rem;
+	margin-bottom: 1.5rem;
+}
+
+.profileHeader {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.profileAvatar {
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	border: 2px solid #f4bc41;
+}
+
+.profileInfo {
+	flex: 1;
+}
+
+.username {
+	font-size: 1.25rem;
+	margin-bottom: 0.25rem;
+}
+
+.userRank {
+	color: #69b7f9;
+}
+
+.statsGrid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1rem;
+	text-align: center;
+}
+
+.statBox {
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 6px;
+	padding: 1rem;
+}
+
+.statValue {
+	font-size: 1.5rem;
+	margin-bottom: 0.25rem;
+}
+
+.friendsCount {
+	color: #f4bc41;
+}
+
+.winRate {
+	color: #79dc69;
+}
+
+.statLabel {
+	font-size: 0.875rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* Suggested Friends */
+.suggestedCard {
+	background-color: rgba(42, 49, 59, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 12px;
+	border: 2px solid #3a424f;
+	padding: 1.5rem;
+}
+
+.suggestedList {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.suggestedItem {
+	background-color: rgba(26, 30, 42, 0.8);
+	backdrop-filter: blur(4px);
+	border-radius: 6px;
+	padding: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.suggestedAvatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+.suggestedInfo {
+	flex: 1;
+}
+
+.suggestedName {
+	font-size: 0.875rem;
+	margin-bottom: 0.25rem;
+}
+
+.mutualCount {
+	font-size: 0.75rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+/* Chat Modal */
+.chatModal {
+	position: fixed;
+	bottom: 0;
+	right: 2rem;
+	width: 320px;
+	background-color: #2a313b;
+	border-radius: 12px 12px 0 0;
+	border: 2px solid #3a424f;
+	box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	z-index: 20;
+}
+
+.chatHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.75rem 1rem;
+	background-color: #1a1e2a;
+	border-bottom: 1px solid #3a424f;
+}
+
+.chatTitle {
+	font-size: 1rem;
+	font-weight: bold;
+}
+
+.closeChat {
+	background: none;
+	border: none;
+	color: white;
+	cursor: pointer;
+	font-size: 1.25rem;
+}
+
+.chatMessages {
+	height: 300px;
+	padding: 1rem;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+.messageItem {
+	display: flex;
+	flex-direction: column;
+	max-width: 80%;
+}
+
+.myMessage {
+	align-self: flex-end;
+}
+
+.friendMessage {
+	align-self: flex-start;
+}
+
+.messageBubble {
+	background-color: #3a424f;
+	border-radius: 12px;
+	padding: 0.5rem 0.75rem;
+	font-size: 0.875rem;
+}
+
+.myMessageBubble {
+	background-color: #4086f8;
+	border-radius: 12px 12px 0 12px;
+}
+
+.friendMessageBubble {
+	background-color: #3a424f;
+	border-radius: 12px 12px 12px 0;
+}
+
+.messageInfo {
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.75rem;
+	padding: 0.25rem 0.5rem;
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.chatInputContainer {
+	display: flex;
+	padding: 0.75rem;
+	border-top: 1px solid #3a424f;
+}
+
+.chatInput {
+	flex: 1;
+	background-color: #1a1e2a;
+	border: 1px solid #3a424f;
+	border-radius: 4px;
+	padding: 0.5rem 0.75rem;
+	font-size: 0.875rem;
+	color: white;
+}
+
+.chatInput::placeholder {
+	color: rgba(255, 255, 255, 0.4);
+}
+
+.sendButton {
+	background-color: #4086f8;
+	border: none;
+	border-radius: 4px;
+	width: 36px;
+	margin-left: 0.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}

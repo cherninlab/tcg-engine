@@ -1,7 +1,7 @@
 {
-	"name": "@tcg-game-template/server",
+	"name": "@rism-tcg/server",
 	"version": "0.0.1",
-	"description": "TCG game engine backend built with Cloudflare Workers",
+	"description": "Rism Trading Card Game engine backend built with Cloudflare Workers",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -12,19 +12,18 @@
 	},
 	"dependencies": {
 		"@hono/zod-openapi": "0.18.3",
+		"@rism-tcg/common": "file:../common",
 		"@scalar/hono-api-reference": "0.5.165",
-		"@tcg-game-template/common": "file:../common",
 		"cf-jwt": "^1.0.4",
 		"hono": "4.6.16",
 		"resend": "^4.1.2",
-		"sib-api-v3-typescript": "^2.2.2",
 		"zod": "3.24.1"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.5.40",
 		"@cloudflare/workers-types": "^4.20241230.0",
 		"@types/node": "^22.13.5",
 		"typescript": "~5.6.2",
-		"wrangler": "3.99.0"
+		"vitest": "^3.0.7",
+		"wrangler": "^3.111.0"
 	}
 }

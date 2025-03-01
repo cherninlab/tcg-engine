@@ -1,4 +1,4 @@
-import { Card, CardCreate, CardUpdate } from '@tcg-game-template/common/src';
+import { Card, CardCreate, CardUpdate } from '@rism-tcg/common/src';
 import { Context } from 'hono';
 
 export class CardService {

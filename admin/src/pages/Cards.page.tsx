@@ -1,7 +1,7 @@
 import { Button, Card, Group, Modal, NumberInput, Select, Stack, Table, Text, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
-import { Card as CardType } from '@tcg-game-template/common/src/types/card';
+import { Card as CardType } from '@rism-tcg/common/src/types/card';
 import { useEffect, useState } from 'react';
 
 type CardFormValues = Omit<CardType, 'id'>;

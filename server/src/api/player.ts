@@ -1,5 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { PlayerSchema, UpdatePlayerSchema } from '@tcg-game-template/common/src';
+import { PlayerSchema, UpdatePlayerSchema } from '@rism-tcg/common/src';
 import { PlayerService } from '../services/PlayerService';
 import { route } from '../utils/api';
 

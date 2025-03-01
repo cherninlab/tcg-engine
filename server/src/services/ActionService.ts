@@ -1,4 +1,4 @@
-import { Action, ActionResponse } from '@tcg-game-template/common/src';
+import { Action, ActionResponse } from '@rism-tcg/common/src';
 import { Context } from 'hono';
 
 export class ActionService {

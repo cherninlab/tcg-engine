@@ -1,5 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi';
-import { CreateSessionSchema, JoinSessionSchema, SessionSchema } from '@tcg-game-template/common/src';
+import { CreateSessionSchema, JoinSessionSchema, SessionSchema } from '@rism-tcg/common/src';
 import { SessionService } from '../services/SessionService';
 import { route } from '../utils/api';
 

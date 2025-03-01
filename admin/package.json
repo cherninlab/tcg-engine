@@ -1,7 +1,7 @@
 {
-	"name": "@tcg-game-template/admin",
+	"name": "@rism-tcg/admin",
 	"version": "0.0.1",
-	"description": "Admin panel frontend for TCG game management",
+	"description": "Admin panel frontend for Rism Trading Card Game management",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -16,7 +16,7 @@
 		"@mantine/hooks": "^7.16.0",
 		"@mantine/notifications": "^7.17.0",
 		"@tabler/icons-react": "^3.30.0",
-		"@tcg-game-template/common": "file:../common",
+		"@rism-tcg/common": "file:../common",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1",
 		"react-router-dom": "^7.1.1"

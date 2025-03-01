@@ -1,0 +1,126 @@
+/* Card root styles */
+.root {
+	background: var(--color-background);
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	position: relative;
+	transition: all 0.2s ease;
+}
+
+/* Elevation levels */
+.none {
+	box-shadow: none;
+}
+
+.low {
+	box-shadow: var(--shadow-sm);
+}
+
+.medium {
+	box-shadow: var(--shadow-md);
+}
+
+.high {
+	box-shadow: var(--shadow-lg);
+}
+
+/* Border styles */
+.border-none {
+	border: none;
+}
+
+.border-light {
+	border: 1px solid var(--color-border-light);
+}
+
+.border-medium {
+	border: 2px solid var(--color-border);
+}
+
+.border-heavy {
+	border: 3px solid var(--color-border-dark);
+}
+
+/* Size modifiers */
+.fullWidth {
+	width: 100%;
+}
+
+.fullHeight {
+	height: 100%;
+}
+
+/* Interactive states */
+.clickable {
+	cursor: pointer;
+}
+
+.selected {
+	border-color: var(--color-primary);
+	box-shadow: 0 0 0 2px var(--color-primary-light);
+}
+
+.disabled {
+	opacity: 0.6;
+	pointer-events: none;
+}
+
+/* Header and footer */
+.header {
+	padding: var(--spacing-4);
+	border-bottom: 1px solid var(--color-border-light);
+}
+
+.content {
+	padding: var(--spacing-4);
+}
+
+.footer {
+	padding: var(--spacing-4);
+	border-top: 1px solid var(--color-border-light);
+}
+
+/* Background image */
+.hasBackgroundImage {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+/* Hover effects */
+.hover-none:hover {
+	transform: none;
+}
+
+.hover-lift:hover {
+	transform: translateY(-4px);
+	box-shadow: var(--shadow-lg);
+}
+
+.hover-glow:hover {
+	box-shadow: 0 0 20px var(--color-primary-light);
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+	.root {
+		background: var(--color-background-dark);
+	}
+
+	.border-light {
+		border-color: var(--color-border-light-dark);
+	}
+
+	.border-medium {
+		border-color: var(--color-border-dark);
+	}
+
+	.border-heavy {
+		border-color: var(--color-border-darker);
+	}
+
+	.header,
+	.footer {
+		border-color: var(--color-border-light-dark);
+	}
+}
